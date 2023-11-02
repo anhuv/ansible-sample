@@ -12,6 +12,22 @@
     - name: Display ls command output
       debug:
         var: ls_output.stdout_lines
+    
+    - name: Create key file
+      - copy:
+          content: "{{ your_ssh_value }}"
+          dest: "/tmp/remote_notes.txt"
+      
+    - name: Run ls command
+      command: ls /tmp
+      register: ls_output
+
+    - name: Display ls command output
+      debug:
+        var: ls_output.stdout_lines
+    
+    - name: Create a text file with echo
+      shell: cat /tmp/remote_notes.txt
 
     - name: Display ansible_ssh_private_key_file
       debug:
@@ -44,15 +60,18 @@
         msg: "Hello World! I am using password"
     
     - name: Create a text file with echo
-      shell: echo "{{ tower_job_id }}" > ~/tmp/job.txt
+      shell: echo "{{ tower_job_id }}" > ~/tmp/job-user-pass.txt
 
-# - name: Test ssh host
-#   hosts: demo_host_ssh
-#   vars:
-#     ansible_ssh_user: "{{ your_ssh_username }}"
-#     ansible_ssh_private_key_file: "{{ your_ssh_path }}"
-#   tasks:
-#     - name: Hello Message in demo_host with user and password
-#       debug:
-#         msg: "Hello World! I am using password"
+- name: Test ssh host
+  hosts: demo_host_ssh
+  vars:
+    ansible_ssh_user: "{{ your_ssh_username }}"
+    ansible_ssh_private_key_file: "{{ your_ssh_path }}"
+  tasks:
+    - name: Hello Message in demo_host with ssh key
+      debug:
+        msg: "Hello World! I am using ssh key"
+    
+    - name: Create a text file with echo
+      shell: echo "{{ tower_job_id }}" > ~/tmp/job-key.txt
       
