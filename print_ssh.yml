@@ -6,7 +6,7 @@
         msg: "Hello World!"
 
     - name: Run ls command
-      command: ls
+      command: ls /tmp
       register: ls_output
 
     - name: Display ls command output
@@ -24,3 +24,18 @@
     - name: Debug Print user
       debug:
         var: ansible_user
+
+    - name: Debug Print user
+      debug:
+        var: ansible_password
+
+- name: Test host
+  hosts: demo_host
+  become: yes
+  become_method: sudo
+  become_user: {{ your_username }}  
+  become_pass:  {{ your_password }} 
+  tasks:
+    - name: Hello Message in demo_host with user and password
+      debug:
+        msg: "Hello World! I am using password"
