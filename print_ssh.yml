@@ -44,5 +44,15 @@
         msg: "Hello World! I am using password"
     
     - name: Create a text file with echo
-      command: echo "{{ tower_job_id }}" > /tmp/job.txt
+      shell: echo "{{ tower_job_id }}" > ~/tmp/job.txt
+
+# - name: Test ssh host
+#   hosts: demo_host_ssh
+#   vars:
+#     ansible_ssh_user: "{{ your_ssh_username }}"
+#     ansible_ssh_private_key_file: "{{ your_ssh_path }}"
+#   tasks:
+#     - name: Hello Message in demo_host with user and password
+#       debug:
+#         msg: "Hello World! I am using password"
       
