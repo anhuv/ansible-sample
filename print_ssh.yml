@@ -38,6 +38,6 @@
     - name: Hello Message in demo_host with user and password
       debug:
         msg: "Hello World! I am using password"
-      ansible_become_pass: "{{ your_password }}" 
-      ansible_become_pass: "{{ your_username }}" 
+        ansible_become_pass: "{{ your_password }}" 
+        ansible_become_pass: "{{ your_username }}" 
       
