@@ -32,9 +32,9 @@
 - name: Test host
   hosts: demo_host
   become: yes
+  become_user: "{{ your_username }}" 
   become_method: sudo
-  become_user: "{{ your_username }}"  
-  become_pass:  "{{ your_password }}" 
+  ansible_become_pass: "{{ your_password }}" 
   tasks:
     - name: Hello Message in demo_host with user and password
       debug:
