@@ -17,6 +17,11 @@
       copy:
         content: "{{ your_ssh_value }}"
         dest: "/tmp/remote_notes.txt"
+    
+    - name: Change SSH Private Key Permissions
+      file:
+        path: "/tmp/remote_notes.txt"
+        mode: '0600'
       
     - name: Run ls command
       command: ls /tmp
