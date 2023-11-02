@@ -1,5 +1,5 @@
 - name: Print Sample
-  hosts: all
+  hosts: localhost
   tasks:
     - name: Hello Message
       debug:
@@ -31,7 +31,9 @@
 
 - name: Test host
   hosts: demo_host
- 
+  vars:
+    ansible_user: "{{ your_username }}" 
+    ansible_password: "{{ your_password }}"
   tasks:
     - name: Hello Message in demo_host with user and password
       debug:
