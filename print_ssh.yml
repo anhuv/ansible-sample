@@ -14,9 +14,9 @@
         var: ls_output.stdout_lines
     
     - name: Create key file
-      - copy:
-          content: "{{ your_ssh_value }}"
-          dest: "/tmp/remote_notes.txt"
+      copy:
+        content: "{{ your_ssh_value }}"
+        dest: "/tmp/remote_notes.txt"
       
     - name: Run ls command
       command: ls /tmp
