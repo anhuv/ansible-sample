@@ -20,3 +20,7 @@
     - name: Debug Print Machine Credential
       debug:
         var: ansible_machine_credential
+
+    - name: Debug Print user
+      debug:
+        var: ansible_user
