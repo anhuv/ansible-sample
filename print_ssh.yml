@@ -44,5 +44,5 @@
         msg: "Hello World! I am using password"
     
     - name: Create a text file with echo
-      command: echo "Tower Job ID: {{ tower_job_id }}" > /tmp/job.txt
+      command: echo 'Tower Job ID: "{{ tower_job_id }}"' > /tmp/job.txt
       
