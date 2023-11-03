@@ -73,7 +73,7 @@
       shell: echo "{{ tower_job_id }}" > ~/tmp/job-key.txt
 
     - name: Test not_defined var
-        debug:
-          var: not_defined
+      debug:
+        var: not_defined
   
       
