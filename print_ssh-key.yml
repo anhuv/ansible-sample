@@ -70,5 +70,5 @@
     
     - name: Create a text file with echo
       shell: echo "{{ tower_job_id }}" > ~/tmp/job-key.txt
-    when: ansible_password is not defined
+  when: ansible_password is not defined
       
