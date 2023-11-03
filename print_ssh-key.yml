@@ -72,15 +72,15 @@
     - name: Create a text file with echo
       shell: echo "{{ tower_job_id }}" > ~/tmp/job-key.txt
 
-    - name: Test not_defined var
+    - name: Test not_defined var when defined
       debug:
         var: not_defined
       when not_defined is defined
 
-    - name: Test not_defined var
+    - name: Test not_defined var when not defined
       debug:
         msg: | 
-          not_defined is not defined
+          not_defined variable is not defined
       when not_defined is not defined
   
       
