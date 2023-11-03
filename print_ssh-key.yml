@@ -49,10 +49,10 @@
     - name: Debug Print user
       debug:
         msg: |
-          ansible_user is {{ ansible_user }}
-          ansible_password is {{ ansible_password }}
-          ansible_ssh_user is {{ ansible_ssh_user }}
-          ansible_ssh_private_key_file is {{ ansible_ssh_private_key_file }}
+          ansible_user is {{ ansible_user | default('default_value') }}
+          ansible_password is {{ ansible_password | default('default_value') }}
+          ansible_ssh_user is {{ ansible_ssh_user | default('default_value') }}
+          ansible_ssh_private_key_file is {{ ansible_ssh_private_key_file | default('default_value')}}
 
     - name: Debug AWX job
       debug:
