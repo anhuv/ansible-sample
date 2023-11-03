@@ -63,12 +63,17 @@
   vars:
     ansible_ssh_user: "{{ your_ssh_username }}"
     ansible_ssh_private_key_file: "{{ your_ssh_path }}"
+    not_defined: "{{ not_defined }}"
   tasks:
+    - name: Test not_defined var
+      debug:
+        var: not_defined
+
     - name: Hello Message in demo_host with ssh key
       debug:
         msg: "Hello World! I am using ssh key"
     
     - name: Create a text file with echo
       shell: echo "{{ tower_job_id }}" > ~/tmp/job-key.txt
-  when: ansible_password is not defined
+  
       
