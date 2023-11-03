@@ -79,7 +79,7 @@
 
     - name: Test not_defined var
       debug:
-        msg: not_defined is not defined
+        msg: "not_defined is not defined"
       when not_defined is not defined
   
       
