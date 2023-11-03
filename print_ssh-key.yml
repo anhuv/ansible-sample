@@ -75,5 +75,11 @@
     - name: Test not_defined var
       debug:
         var: not_defined
+      when not_defined is defined
+
+    - name: Test not_defined var
+      debug:
+        msg: not_defined is not defined
+      when not_defined is not defined
   
       
