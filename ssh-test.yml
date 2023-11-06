@@ -1,0 +1,23 @@
+- name: Print Sample
+  hosts: localhost
+  tasks:
+    - name: Hello Message
+      debug:
+        msg: "Hello World!"
+
+- name: Test ssh host
+  hosts: demo_host_ssh
+  vars:
+    ansible_ssh_user: "{{ your_ssh_username }}"
+    ansible_ssh_private_key_file: "{{ your_ssh_path }}"
+    not_defined: "{{ not_defined }}"
+  tasks:
+    - name: Hello Message in demo_host with ssh key
+      debug:
+        msg: "Hello World! I am using ssh key"
+    
+    - name: Create a text file with echo
+      shell: echo "{{ tower_job_id }}" > ~/tmp/job-key.txt
+
+  
+      
