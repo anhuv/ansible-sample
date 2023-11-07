@@ -5,21 +5,26 @@
       debug:
         msg: "Hello World!"
 
-- name: Test host
-  hosts: demo_host
-  vars:
-    ansible_user: "{{ your_username }}" 
-    ansible_password: "{{ your_password }}"
-  tasks:
-    - name: Hello Message in demo_host with user and password
-      debug:
-        msg: "Hello World! I am using password"
-      when: ansible_ssh_user is defined
+- name: Import playbook
+  import_playbook: "print_ssh-key.yml"
+  when:
+  - your_ssh_username is defined
+  - your_ssh_path is defined
+  - your_ssh_value is defined
+# - name: Test host
+#   hosts: demo_host
+#   vars:
+#     ansible_user: "{{ your_username }}" 
+#     ansible_password: "{{ your_password }}"
+#   tasks:
+#     - name: Hello Message in demo_host with user and password
+#       debug:
+#         msg: "Hello World! I am using password"
+#       when: ansible_ssh_user is defined
     
-    - name: Create a text file with echo
-      shell: echo "{{ tower_job_id }}" > ~/tmp/job-user-pass.txt
-      when: ansible_ssh_user is defined
-
+#     - name: Create a text file with echo
+#       shell: echo "{{ tower_job_id }}" > ~/tmp/job-user-pass.txt
+#       when: ansible_ssh_user is defined
 # - name: Test ssh host
 #   hosts: demo_host_ssh
 #   vars:

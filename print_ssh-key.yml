@@ -72,18 +72,18 @@
     - name: Create a text file with echo
       shell: echo "{{ tower_job_id }}" > ~/tmp/job-key.txt
 
-    - name: Test not_defined var when defined
-      debug:
-        var: not_defined
-      when: not_defined is defined
+    # - name: Test not_defined var when defined
+    #   debug:
+    #     var: not_defined
+    #   when: not_defined is defined
 
-    - name: Test not_defined var when not defined
-      debug:
-        msg: |
-          ansible_user is {{ ansible_user | default('default_value') }}
-      debug:
-        msg: | 
-          not_defined variable is not defined
-      when: not_defined is not defined
+    # - name: Test not_defined var when not defined
+    #   debug:
+    #     msg: |
+    #       ansible_user is {{ ansible_user | default('default_value') }}
+    #   debug:
+    #     msg: | 
+    #       not_defined variable is not defined
+    #   when: not_defined is not defined
   
       
